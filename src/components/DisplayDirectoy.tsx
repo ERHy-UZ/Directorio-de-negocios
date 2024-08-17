@@ -16,8 +16,8 @@ export default function DisplayDirectoy({ edit }: DisplayDirectoyProps) {
     return (
         <div className={`${state.list === false ? 'grid grid-cols-2 xl:grid-cols-3 gap-2 md:gap-5' : 'space-y-2'} w-full ${state.directorios.length === 0 && 'grid-cols-1 xl:grid-cols-1'} `}>
             {state.directorios.length === 0 &&
-                <div className='w-full flex justify-center items-center mt-36'>
-                    <h1 className='uppercase text-6xl font-dosis text-stone-500'>No hay datos</h1>
+                <div className='absolute w-full lg:w-[90%] flex justify-center pt-10 mt-36 h-full top-0 right-0'>
+                    <h1 className='uppercase text-3xl lg:text-6xl font-dosis text-stone-500'>No hay datos</h1>
                 </div>
             }
             {state.directorios.map(directorio => (
