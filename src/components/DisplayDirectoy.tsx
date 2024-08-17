@@ -8,6 +8,7 @@ type DisplayDirectoyProps = {
     edit: boolean
 }
 
+//Componente que maneja la vista tanto para el Directorio como para Modificar
 export default function DisplayDirectoy({ edit }: DisplayDirectoyProps) {
 
     const { state } = useDirectory()

@@ -8,7 +8,7 @@ type useNewProps = {
     id: number
 }
 
-const initialValues : DirectoyArrayType = { // <---- El valor inicial del estado local
+const initialValues : DirectoyArrayType = { //El valor inicial del estado local en caso de no estar editando
     id: -1,
     nombre: '',
     telefono: '',
@@ -18,6 +18,7 @@ const initialValues : DirectoyArrayType = { // <---- El valor inicial del estado
     fotos: []
 }
 
+//Funcion para verificar si se va a editar o añadir un nuevo directorio
 function firstValues(id: number, state: DirectoyState): DirectoyArrayType {
     const newValue = id === -1 ? initialValues : state.directorios.find(directorio => directorio.id == id)!
 
@@ -40,10 +41,10 @@ export const useNew = ({ id }: useNewProps) => {
     const [formData, setFormData] = useState<DirectoyArrayType>(firstValues(id, state))
     const [serviceInput, setServiceInput] = useState('')
 
-    //router
+    //Router
     const router = useRouter()
 
-    //Manejadores de eventos
+//Manejadores de eventos
     //Añade los servicios que ofrece el negocio
     const handleAddServicio = () => {
         if (!formData.servicios.find(servicio => servicio === serviceInput) && serviceInput.trim().length > 0) {

@@ -1,5 +1,11 @@
 import ButtonMotion from "@/components/ButtonMotion"
 import dynamic from "next/dynamic"
+import type { Metadata } from 'next'
+
+//Pagina para modificar
+export const metadata: Metadata = {
+  title: 'Modificar',
+}
 
 export default function Modificar() {
 

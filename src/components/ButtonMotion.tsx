@@ -4,6 +4,7 @@ import { useDirectory } from '@/hooks/useDirectory'
 import { motion } from 'framer-motion'
 import { useEffect } from 'react'
 
+// Botones para cambiar entre lista y cuadricula
 export default function ButtonMotion() {
 
     const { state, dispatch } = useDirectory()

@@ -56,8 +56,8 @@ export const directoryReducer = (
     action: DirectoyActions
 ) => {
 
-    //Funcionalidades por acción
-    if (action.type === 'add-directory') { // <--- Accion que añade un nuevo directorio al estado
+//Funcionalidades por acción
+    if (action.type === 'add-directory') { //Accion que añade un nuevo directorio o modifica uno existente
         let newDirectory: DirectoyArrayType[]
         let newID: number
 
@@ -75,7 +75,7 @@ export const directoryReducer = (
             idActual: newID
         }
     }
-    if (action.type === 'delete-directoy') {
+    if (action.type === 'delete-directoy') { //Accion que elimina un solo directorio
         let newDirectory: DirectoyArrayType[]
 
         newDirectory = state.directorios.filter(directorio => directorio.id !== action.payload.id )
@@ -85,7 +85,7 @@ export const directoryReducer = (
             directorios: newDirectory
         }
     }
-    if (action.type === 'delete-all') {
+    if (action.type === 'delete-all') { //Accion que elimina todos los directorios
 
         return {
             ...state,
@@ -93,14 +93,14 @@ export const directoryReducer = (
             idActual: 0 
         }
     }
-    if (action.type === 'set-list') { // <--- Accion que cambia la vista a lista
+    if (action.type === 'set-list') { //Accion que cambia la vista a lista
 
         return {
             ...state,
             list: true
         }
     }
-    if (action.type === 'set-box') {// <--- Accion que cambia la vista a cuadricula
+    if (action.type === 'set-box') {//Accion que cambia la vista a cuadricula
 
         return {
             ...state,

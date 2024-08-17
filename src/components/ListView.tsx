@@ -5,13 +5,14 @@ import Image from "next/image"
 import { useRouter } from 'next/navigation'
 import DeleteModal from "./DeleteModal"
 
+//Componente que representa un item en la lista
 export default function ListView({ directorio, edit }: ViewProps) {
 
     const [slide, setSlide] = useState(0)
     const [isModalOpen, setModalOpen] = useState(false)
     const router = useRouter()
 
-    const handleLeft = () => {
+    const handleLeft = () => { //Cambia la imagen a la anterior [Si existe]
         if (slide === 0) {
             setSlide(directorio.fotos.length - 1)
         } else {
@@ -19,7 +20,7 @@ export default function ListView({ directorio, edit }: ViewProps) {
         }
     }
 
-    const handleRight = () => {
+    const handleRight = () => { //Cambia la imagen a la siguiente [Si existe]
         if (slide === directorio.fotos.length - 1) {
             setSlide(0)
         } else {

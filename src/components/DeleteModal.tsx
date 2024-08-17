@@ -3,6 +3,7 @@ import { DirectoyActions } from "@/redurcers/directoy-reducer"
 import { motion } from "framer-motion"
 import { Dispatch, SetStateAction } from "react"
 
+//Lo que se le tiene que pasar a este componente para ser reutilizado
 type DeleteModalProps = {
     mensaje: string,
     isModalOpen: boolean
@@ -10,6 +11,7 @@ type DeleteModalProps = {
     toDispatch: DirectoyActions
 }
 
+//Componente de un modal que permite mostrar un mensaje de acuerdo a los paramentros pasados
 export default function DeleteModal({ mensaje, isModalOpen, setModalOpen, toDispatch }: DeleteModalProps) {
 
     const { dispatch } = useDirectory()

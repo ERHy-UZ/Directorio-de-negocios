@@ -8,9 +8,10 @@ type FormComponentProps = {
     id?: number
 }
 
+//Componente Formulario usado tanto para añadir como para modificar
 export default function FormComponent({ id }: FormComponentProps) {
 
-    //Llama los estados y manejadores que nececita para la funcionalidad
+    //Llama los estados y manejadores que nececita para la funcionalidad                 Si existe el id pasa dicho id al custom hook de otra forma manda -1 [Asi se sabe si esta editando]
     const { formData, serviceInput, handleAddServicio, handleDeleteServicio, handleSubmit, handleChange, handleValidation, handleResetFotos } = useNew(id ? { id } : {id: -1})
 
     return (

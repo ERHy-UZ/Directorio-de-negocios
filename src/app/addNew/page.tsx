@@ -1,8 +1,9 @@
 import FormComponent from '@/components/FormComponent'
 import type { Metadata } from 'next'
 
+//Pagina para nuevo directorio
 export const metadata: Metadata = {
-  title: 'Agregar',
+  title: 'Añadir',
 }
 
 export default function AddNew() {

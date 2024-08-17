@@ -1,6 +1,7 @@
 import ButtonMotion from "@/components/ButtonMotion"
 import dynamic from "next/dynamic"
 
+//Pagina inicial
 export default function Home() {
 
   const NoSSR = dynamic(() => import('@/components/DisplayDirectoy'), { ssr: false })

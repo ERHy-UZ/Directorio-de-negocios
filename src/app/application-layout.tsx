@@ -9,7 +9,6 @@ import {
   SidebarSpacer,
 } from '@/components/sidebar'
 import { SidebarLayout } from '@/components/sidebar-layout'
-import { getEvents } from '@/data'
 import {
   HomeIcon,
   TrashIcon,
@@ -21,12 +20,7 @@ import { DirectoryProvider } from '@/context/DirectoyContex'
 import DeleteModal from '@/components/DeleteModal'
 import { useState } from 'react'
 
-export function ApplicationLayout({
-  children,
-}: {
-  events: Awaited<ReturnType<typeof getEvents>>
-  children: React.ReactNode
-}) {
+export function ApplicationLayout({ children }: { children: React.ReactNode }) {
   let pathname = usePathname()
 
   const [isModalOpen, setModalOpen] = useState(false)

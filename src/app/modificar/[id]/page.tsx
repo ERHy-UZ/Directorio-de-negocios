@@ -5,6 +5,7 @@ export const metadata: Metadata = {
     title: 'Editar',
 }
 
+//Pagina para editar
 export default function EditID({ params }: { params: { id: number } }) {
 
     const NumetoDir = +params.id + 1
