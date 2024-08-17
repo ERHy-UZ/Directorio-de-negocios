@@ -12,11 +12,14 @@ import { SidebarLayout } from '@/components/sidebar-layout'
 import { getEvents } from '@/data'
 import {
   HomeIcon,
-  SparklesIcon,
-  TicketIcon,
+  TrashIcon,
+  PlusIcon,
+  BookOpenIcon
 } from '@heroicons/react/20/solid'
 import { usePathname } from 'next/navigation'
 import { DirectoryProvider } from '@/context/DirectoyContex'
+import DeleteModal from '@/components/DeleteModal'
+import { useState } from 'react'
 
 export function ApplicationLayout({
   children,
@@ -25,6 +28,8 @@ export function ApplicationLayout({
   children: React.ReactNode
 }) {
   let pathname = usePathname()
+
+  const [isModalOpen, setModalOpen] = useState(false)
 
   return (
     <DirectoryProvider>
@@ -38,11 +43,11 @@ export function ApplicationLayout({
                   <SidebarLabel>Directorio</SidebarLabel>
                 </SidebarItem>
                 <SidebarItem href="/addNew" current={pathname === '/addNew'}>
-                  <TicketIcon />
+                  <PlusIcon />
                   <SidebarLabel>Añadir</SidebarLabel>
                 </SidebarItem>
                 <SidebarItem href="/modificar" current={pathname.startsWith('/modificar')}>
-                  <HomeIcon />
+                  <BookOpenIcon />
                   <SidebarLabel>Modificar</SidebarLabel>
                 </SidebarItem>
               </SidebarSection>
@@ -51,8 +56,8 @@ export function ApplicationLayout({
 
               <SidebarSection>
                 <SidebarItem href="#">
-                  <SparklesIcon />
-                  <SidebarLabel>REINICIAR</SidebarLabel>
+                  <TrashIcon />
+                  <SidebarLabel onClick={() => setModalOpen(true)}>ELIMINAR TODO</SidebarLabel>
                 </SidebarItem>
               </SidebarSection>
             </SidebarBody>
@@ -61,6 +66,7 @@ export function ApplicationLayout({
       >
         {children}
       </SidebarLayout>
+      <DeleteModal mensaje='¿Seguro que desea eliminar todo?' isModalOpen={isModalOpen} setModalOpen={setModalOpen} toDispatch={{ type: 'delete-all' }} />
     </DirectoryProvider>
   )
 }

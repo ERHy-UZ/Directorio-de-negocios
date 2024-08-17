@@ -6,6 +6,7 @@ import type { DirectoyArrayType } from "@/types"
 export type DirectoyActions =
     { type: 'add-directory', payload: DirectoyArrayType } |
     { type: 'delete-directoy', payload: { id: number } } |
+    { type: 'delete-all'} |
     { type: 'set-list' } |
     { type: 'set-box' }
 
@@ -82,6 +83,14 @@ export const directoryReducer = (
         return {
             ...state,
             directorios: newDirectory
+        }
+    }
+    if (action.type === 'delete-all') {
+
+        return {
+            ...state,
+            directorios: [],
+            idActual: 0 
         }
     }
     if (action.type === 'set-list') { // <--- Accion que cambia la vista a lista
